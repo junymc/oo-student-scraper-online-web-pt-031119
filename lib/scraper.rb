@@ -35,6 +35,7 @@ class Scraper
         students_detail[:linkedin] = social_media.attribute("href").value
       elsif social_media.attribute("href").value.include?("blog")
         students_detail[:blog] = social_media.attribute("href").value
+        binding.pry
       end
 
 
