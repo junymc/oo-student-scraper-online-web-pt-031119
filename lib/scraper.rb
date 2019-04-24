@@ -26,7 +26,7 @@ class Scraper
     students_detail = {}
 
     doc.css("div.social-icon-container").children.css("a").each do |social_media|
-      binding.pry
+      # binding.pry
       if social_media.attribute("href").value.include?("twitter")
         students_detail[:twitter] = social_media.attribute("href").value
       elsif social_media.attribute("href").value.include?("github")
@@ -39,7 +39,7 @@ class Scraper
     end
 
     students_detail[:bio] = doc.css("div.description-holder p").text
-    students_detail[:profile_quote] = doc.css("div.profile-quote").text.delete("")
+    students_detail[:profile_quote] = doc.css("div.profile-quote").text
 
     students_detail
   end
