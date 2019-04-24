@@ -39,8 +39,8 @@ class Scraper
     end
 
     students_detail[:bio] = doc.css("div.description-holder p").text
-    students_detail[:profile_quote] = doc.css("div.profile-quote").text
-    
+    students_detail[:profile_quote] = doc.css("div.profile-quote").gsub("\" \"", "").text
+
     students_detail
   end
 
