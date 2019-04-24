@@ -13,23 +13,30 @@ class Scraper
       students << {
         name: student.css("h4.student-name").text,
         location: student.css("p.student-location").text,
-<<<<<<< HEAD
-        # profile_url:
-=======
-        # profile_url: 
->>>>>>> f853313690e3714475b678c2e4365fe61f47eb72
+        profile_url: "#{student.css("a").attr("href").value}"
       }
     end
     students
   end
 
+
   def self.scrape_profile_page(profile_url)
-    doc = Nokogiri::HTML(open(index_url))
+    doc = Nokogiri::HTML(open(profile_url))
 
     students_detail = {}
 
+    doc.css("div.social-icon-container").children.css("a").each do |social_media|
+      # binding.pry
+      if social_media.attribute("href").value.include?("twitter")
+        students_detail[:twitter] = social_media.attribute("href").value
+      elsif social_media.attribute("href").value.include?("github")
+        students_detail[:github] = social_media.attribute("href").value
+      end
 
 
+
+    end
+    students_detail
   end
 
 end
