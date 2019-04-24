@@ -13,7 +13,11 @@ class Scraper
       students << {
         name: student.css("h4.student-name").text,
         location: student.css("p.student-location").text,
+<<<<<<< HEAD
         # profile_url:
+=======
+        # profile_url: 
+>>>>>>> f853313690e3714475b678c2e4365fe61f47eb72
       }
     end
     students
