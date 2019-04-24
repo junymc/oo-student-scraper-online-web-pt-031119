@@ -26,7 +26,7 @@ class Scraper
     students_detail = {}
 
     doc.css("div.social-icon-container").children.css("a").each do |social_media|
-      binding.pry
+      
       if social_media.attribute("href").value.include?("twitter")
         students_detail[:twitter] = social_media.attribute("href").value
       elsif social_media.attribute("href").value.include?("github")
